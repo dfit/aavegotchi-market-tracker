@@ -1,0 +1,21 @@
+{
+  "name": "bot2",
+  "version": "1.0.0",
+  "description": "Gotchi manager",
+  "main": "main.js",
+  "scripts": {
+    "run": "node main"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^0.13.0",
+    "@discordjs/rest": "^0.4.1",
+    "axios": "^0.27.2",
+    "console-stamp": "^3.0.4",
+    "discord-api-types": "^0.33.1",
+    "discord.js": "^13.6.0",
+    "node-json-db": "^1.5.0",
+    "web3": "^1.7.4"
+  },
+  "author": "dfit",
+  "license": "ISC"
+}
