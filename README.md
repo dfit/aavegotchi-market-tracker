@@ -50,8 +50,6 @@ npm install
 
 Every needed information (token/id/...) and the way to obtain them is describe in the [discordjs](https://discordjs.guide/#before-you-begin) guide.
 ```bash 
-export PRIVATE_KEY=<enter-your-private-key> 
-//private key (until I find something better ...)
 export DISCORD_TOKEN=<enter-your-discord-token>
 export ID_BAAZAAR=<enter-your-baazaar-channel-id>
 export ID_CLIENT=<enter-your-application-id> //go to https://discord.com/developers/applications/me and find "application id" and copy it
@@ -77,11 +75,11 @@ pm2 start main.js --no-autorestart
 
 `node main`
 ```bash
-[2022-04-19 19:18:55.394] [LOG]   Public address : 0xa9589438851A7eFBa37bC45ebE2be558c4bA3055
-[2022-04-19 19:18:55.415] [LOG]   Initiate naive algo...
-[2022-04-19 19:18:56.148] [LOG]   Balance of 0xa9589438851A7eFBa37bC45ebE2be558c4bA3055 : 0 GHST
-[2022-04-19 19:18:56.149] [LOG]   Gotchi 99999 will be petted in 29925.851 seconds.
-[2022-04-19 19:18:56.495] [LOG]   Gotchi 99999 is already listed or borrowed by 0xA6AeA7b5f826E97c5e54407ba795579CAB0708a8.
-[2022-04-19 19:18:56.496] [LOG]   Gotchi 99999 can't be claimed yet.
-[2022-04-19 19:23:56.500] [LOG]   Initiate naive algo...
+[2022-06-27 13:23:20.833] [LOG]   Successfully registered application commands.
+[2022-06-27 13:23:21.238] [LOG]   Ready!
+[2022-06-27 13:23:23.414] [LOG]   No new listed gotchi found
 ```
+Create and delete tracker for users :
+![example1.png](assets/img/example1.png)
+DM when ghst/kinship/brs matched :
+![example2.png](assets/img/example2.png)
