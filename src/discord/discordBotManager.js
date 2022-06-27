@@ -85,7 +85,7 @@ module.exports = {
     });
     const trackers = userTrackersManager.getUsersTracker()
     trackers.forEach(tracker => {
-      const matchedWithTracker = newListedGotchisEnhanced.filter(newListedGotchiEnhanced => web3.utils.fromWei(newListedGotchiEnhanced.priceInWei) < tracker.ghst && newListedGotchiEnhanced.gotchi.baseRarityScore > tracker.minBrs && newListedGotchiEnhanced.gotchi.kinship > tracker.kinship)
+      const matchedWithTracker = newListedGotchisEnhanced.filter(newListedGotchiEnhanced => Number(web3.utils.fromWei(newListedGotchiEnhanced.priceInWei)) < Number(tracker.ghst) && Number(newListedGotchiEnhanced.gotchi.baseRarityScore) > Number(tracker.minBrs) && Number(newListedGotchiEnhanced.gotchi.kinship) > Number(tracker.kinship))
       if(matchedWithTracker.length > 0) this.notifyUser(tracker.userId, matchedWithTracker)
     })
   },
