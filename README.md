@@ -8,7 +8,7 @@ Any comment, remark or suggestions would be highly appreciated.
 
 You can try it on my own discord server before implementing it on your own.
 
-Link to my discord : 
+Pm me if you need to try it :) 
 
 
 ## Main actions
