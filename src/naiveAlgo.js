@@ -4,29 +4,32 @@ const discordBotManager = require('./discord/discordBotManager');
 
 module.exports = {
   async routineCheck() {
-    await this.refreshGotchisListed()
+    await this.refreshBaazaarListed()
   },
-  async refreshGotchisListed() {
+  async refreshBaazaarListed() {
     const listedGotchis = await baazatRequester.requestListedGotchis()
+    const listedParcels = await baazatRequester.requestListedParcels()
     const newListedGotchis = this.checkNewListings(listedGotchis);
-    this.notifyDiscordUsers(newListedGotchis)
+    const newListedParcels = this.checkNewListings(listedParcels);
+    this.notifyDiscordUsers(newListedGotchis, "gotchis")
+    this.notifyDiscordUsers(newListedParcels, "parcels")
 
     dbManager.db.push("/lastCheck", new Date().getTime())
   },
-  checkNewListings(listedGotchis) {
+  checkNewListings(listedElements) {
     let lastCheck;
     try {
       lastCheck = dbManager.db.getData("/lastCheck")
     } catch (e) {
       lastCheck = new Date().getTime()
     }
-    return listedGotchis.filter(listedGotchi => listedGotchi.timeCreated * 1000 > lastCheck )
+    return listedElements.filter(element => element.timeCreated * 1000 > lastCheck )
   },
-  notifyDiscordUsers(newListedGotchis) {
-    if(newListedGotchis.length > 0) {
-      discordBotManager.sendNewListings(newListedGotchis)
+  notifyDiscordUsers(newListedElements, type) {
+    if(newListedElements.length > 0) {
+      discordBotManager.sendNewListings(newListedElements, type)
     } else {
-      console.log("No new listed gotchi found")
+      console.log(`No new listed ${type} found`)
     }
   }
 }

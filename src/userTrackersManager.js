@@ -1,13 +1,26 @@
 const dbManager = require('./dbManager');
-
 module.exports = {
-  createTracker(userId, params) {
-    dbManager.db.push("/trackers[]", {...params, id: userId})
+  availableTrackers: ["gotchis", "parcels"],
+  createGotchiTracker(userId, params) {
+    this.deleteTracker(userId, "gotchis")
+    dbManager.db.push("/gotchis[]", {...params, trackerType: "gotchis", id: userId})
   },
-  deleteTracker(userId) {
-    dbManager.db.delete(`/trackers[${dbManager.db.getIndex("/trackers", userId)}]`)
+  createParcelsTracker(userId, params) {
+    this.deleteTracker(userId, "parcels")
+    dbManager.db.push("/parcels[]", {...params, trackerType: "parcels", id: userId})
   },
-  getUsersTracker() {
-    return dbManager.db.getData(`/trackers`)
+  deleteTracker(userId, trackerType) {
+    const trackerTypeMessage = `/${trackerType}`
+    dbManager.db.delete(`/${trackerType}[${dbManager.db.getIndex(trackerTypeMessage, userId)}]`)
+  },
+  getUserTracker(userId, trackerType) {
+    const trackerTypeMessage = `/${trackerType}`
+    return dbManager.db.getData(`/${trackerType}[${dbManager.db.getIndex(trackerTypeMessage, userId)}]`)
+  },
+  getAllUserTrackers(userId) {
+    return this.availableTrackers.map(tracker => this.getUserTracker(userId, tracker))
+  },
+  getAllTrackersByType(trackerType) {
+    return dbManager.db.getData(`/${trackerType}`)
   }
 }

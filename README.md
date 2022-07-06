@@ -4,24 +4,38 @@ It is for me a good exercise to get more familiar with web3 dev environment and 
 
 Any comment, remark or suggestions would be highly appreciated.
 
+## Try it
+
+You can try it on my own discord server before implementing it on your own.
+
+Link to my discord : 
+
+
 ## Main actions
 
-The purpose of the app is to notify a channel the listings of gotchis as a passive thing.
+The purpose of the app is to notify a channel the listings of gotchis/parcels as a passive thing.
 
-You can also set a tracker with parameters for yourself. This tracker will take some parameters (ghst cost, brs minimum, kinship minimum) and each time a listing posted match your requirement you'll get DM from the discord bot.
+You can also set a tracker with parameters for yourself. This tracker will take some parameters (ghst cost, brs minimum, kinship minimum) for gotchis and (ghst cost, district, size) for parcels.
+
+Each time a listing posted match your requirement you'll get DM from the discord bot.
+
 
 For now here the commands listed commands :
 * ```/register-gotchi-tracker``` : Set a gotchi tracker for yourself
 * ```/delete-gotchi-tracker``` : Delete gotchi tracker set for yourself
+* ```/register-parcel-tracker``` : Set a parcel tracker for yourself
+* ```/delete-parcel-tracker``` : Delete parcel tracker set for yourself
+* ```/get-user-trackers``` : Get all trackers registered set for yourself
 * ```/help``` : Get all available commands
 
 
 ## How it works ##
 
 
-An user can use the command ```/register-gotchi-tracker``` to create a tracker based on his choice, the tracker will be registered on the db.
-All gotchis listed to the baazaar are pulled each 5 minutes and set locally on a json database.
-During this routine the bot will try to match the new listed gotchis with users that register a tracker. On match, a DM with all matched gotchis will be send to the users.
+An user can use the command ```/register-gotchi-tracker``` or ```/register-parcel-tracker``` to create a tracker based on his choice, the tracker will be registered on the db.
+
+All gotchis/parcels listed to the baazaar are pulled each 5 minutes.
+During this routine the bot will try to match the new listed gotchis/parcels with users that register a tracker. On match, a DM with all matched gotchis/parcels will be send to the users.
 ## Prerequisites
 
 * node
@@ -83,3 +97,5 @@ Create and delete tracker for users :
 ![example1.png](assets/img/example1.png)
 DM when ghst/kinship/brs matched :
 ![example2.png](assets/img/example2.png)
+DM when ghst/district/size matched :
+![example3.png](assets/img/example3.png)
