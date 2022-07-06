@@ -28,6 +28,9 @@ For now here the commands listed commands :
 * ```/get-user-trackers``` : Get all trackers registered set for yourself
 * ```/help``` : Get all available commands
 
+## Coming next ## 
+
+Item tracker :)
 
 ## How it works ##
 
