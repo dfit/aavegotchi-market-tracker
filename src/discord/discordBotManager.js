@@ -131,9 +131,6 @@ module.exports = {
   },
   sendNewListings(newListedElements, type) {
     const newListedElementsEnhanced = newListedElements.map(listedElement => ({...listedElement, message: type === "gotchis" ? formatNewGotchiListedMessage(listedElement) : formatNewParcelListedMessage(listedElement)}))
-    client.channels.fetch(idBazaar).then(channel => {
-      sendElementsListedByChunks(newListedElementsEnhanced, channel);
-    });
     const trackers = userTrackersManager.getAllTrackersByType(type)
     trackers.forEach(tracker => {
       const matchedWithTracker = newListedElementsEnhanced.filter(newListedElementEnhanced => {
