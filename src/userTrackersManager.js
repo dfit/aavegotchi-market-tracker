@@ -13,6 +13,7 @@ module.exports = {
     const trackerTypeMessage = `/${trackerType}`
     try {
       dbManager.db.getData(trackerTypeMessage);
+      if(dbManager.db.getIndex(trackerTypeMessage, userId) === -1) return
     } catch(error) {
       console.log(`${trackerTypeMessage} doesn't exists yet`)
       return
