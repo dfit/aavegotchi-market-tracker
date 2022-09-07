@@ -40,9 +40,9 @@ function sendElementsListedByChunks(elements, channel) {
 }
 
 function registerParcelTrackerModalHandler(interaction) {
-  const ghst = interaction.fields.getTextInputValue('ghstCost');
-  const type = interaction.fields.getTextInputValue('type').toLowerCase();
-  const district = interaction.fields.getTextInputValue('district');
+  const ghst = interaction.fields.getTextInputValue('ghstCost') || "0";
+  const type = interaction.fields.getTextInputValue('type').toLowerCase() || "all";
+  const district = interaction.fields.getTextInputValue('district') || "0";
   const userId = interaction.user.id;
   console.log({ userId, ghst, type, district });
   const isInputsValid = !isNaN(Number(ghst)) && ["humble", "reasonable", "spacious", "all"].includes(type) && !isNaN(
@@ -60,9 +60,9 @@ function registerParcelTrackerModalHandler(interaction) {
 }
 
 function registerGotchisTrackerModalHandler(interaction) {
-  const ghst = interaction.fields.getTextInputValue('ghstCost');
-  const minBrs = interaction.fields.getTextInputValue('brs');
-  const kinship = interaction.fields.getTextInputValue('kinship');
+  const ghst = interaction.fields.getTextInputValue('ghstCost') || "0";
+  const minBrs = interaction.fields.getTextInputValue('brs') || "0";
+  const kinship = interaction.fields.getTextInputValue('kinship') || "0";
   const userId = interaction.user.id;
   console.log({ userId, ghst, minBrs, kinship });
   const isInputsValid = !isNaN(Number(ghst)) && !isNaN(Number(minBrs)) && !isNaN(Number(kinship))
