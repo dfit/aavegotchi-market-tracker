@@ -20,6 +20,7 @@ module.exports = {
   async execute(interaction) {
     const userTrackers = userTrackersManager.getAllUserTrackers(interaction.user.id)
     const formatedTrackers = formatTrackers(userTrackers)
+    if(userTrackers.length === 0) return interaction.reply("No trackers found");
     return interaction.reply(`Trackers for ${interaction.user.username} :\n${formatedTrackers.join("\n")}`);
   },
 };

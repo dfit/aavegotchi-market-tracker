@@ -22,10 +22,11 @@ module.exports = {
   },
   getUserTracker(userId, trackerType) {
     const trackerTypeMessage = `/${trackerType}`
+    if(dbManager.db.getIndex(trackerTypeMessage, userId) === -1) return null
     return dbManager.db.getData(`/${trackerType}[${dbManager.db.getIndex(trackerTypeMessage, userId)}]`)
   },
   getAllUserTrackers(userId) {
-    return this.availableTrackers.map(tracker => this.getUserTracker(userId, tracker))
+    return this.availableTrackers.map(tracker => this.getUserTracker(userId, tracker)).filter(tracker => tracker !== null)
   },
   getAllTrackersByType(trackerType) {
     return dbManager.db.getData(`/${trackerType}`)
