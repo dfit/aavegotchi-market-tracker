@@ -102,3 +102,6 @@ DM when ghst/kinship/brs matched :
 ![example2.png](assets/img/example2.png)
 DM when ghst/district/size matched :
 ![example3.png](assets/img/example3.png)
+
+# Ski pointure
+Jonathan's pointure is 45
